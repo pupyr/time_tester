@@ -1,10 +1,5 @@
 #include "time_tester.h"
 
-void n(long long N){
-    for(int i=0;i<N; i++)
-        int a = i + 1;
-}
-
 void log(long long N){
     int l = 0;
     int r = N-1;
