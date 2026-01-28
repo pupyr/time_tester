@@ -28,13 +28,11 @@ for file_path in glob.glob("plots/test*"):
 output_dir = "plots"
 os.makedirs(output_dir, exist_ok=True)
 
-plot_count = 0
 for i, row in enumerate(x_rows):
     label = str(x_labels[i])
     x_values = pd.to_numeric(row, errors='coerce')
     plt.figure(figsize=(8, 6))
     plt.plot(x_values, y_values, marker='o', linestyle='-', color='b')
-    plt.plot(x_rows[0], y_values, marker='o', linestyle='-', color='b')
     plt.xlabel("x")
     plt.ylabel("y")
     plt.title(label)
@@ -43,4 +41,19 @@ for i, row in enumerate(x_rows):
     save_path = os.path.join(output_dir, f"{label}.jpg")
     plt.savefig(save_path, format='jpg', dpi=300)
     plt.close()
-    plot_count += 1
+
+plt.figure(figsize=(8, 6))
+plt.xlabel("x")
+plt.ylabel("y")
+plt.title(label)
+plt.grid(True, alpha=0.3)
+plt.tight_layout()
+
+for i, row in enumerate(x_rows):
+    label = str(x_labels[i])
+    x_values = pd.to_numeric(row, errors='coerce')
+    plt.plot(x_values, y_values, marker='o', linestyle='-')
+
+save_path = os.path.join(output_dir, f"test_0.jpg")
+plt.savefig(save_path, format='jpg', dpi=300)
+plt.close()

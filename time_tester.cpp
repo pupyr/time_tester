@@ -141,8 +141,9 @@ void func_test(long long start, int N, long long step, std::vector<void(*)(long 
         fprintf(file, "\n");
     }
 
-  
+#ifndef SILENT
     table_print(mass);
+#endif
     structCursorInfo.bVisible = TRUE;
     SetConsoleCursorInfo(hConsole, &structCursorInfo);
 
