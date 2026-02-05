@@ -15,6 +15,7 @@ except Exception as e:
     print(f"Ошибка при чтении файла: {e}")
     exit(1)
 
+
 y_values = data.iloc[0, 1:].values
 y_values = pd.to_numeric(y_values, errors='coerce')
 
@@ -32,9 +33,9 @@ for i, row in enumerate(x_rows):
     label = str(x_labels[i])
     x_values = pd.to_numeric(row, errors='coerce')
     plt.figure(figsize=(8, 6))
-    plt.plot(x_values, y_values, marker='o', linestyle='-', color='b')
-    plt.xlabel("x")
-    plt.ylabel("y")
+    plt.plot(y_values, x_values, marker='o', linestyle='-', color='b')
+    plt.xlabel("N")
+    plt.ylabel("Time, sec")
     plt.title(label)
     plt.grid(True, alpha=0.3)
     plt.tight_layout()
@@ -43,16 +44,16 @@ for i, row in enumerate(x_rows):
     plt.close()
 
 plt.figure(figsize=(8, 6))
-plt.xlabel("x")
-plt.ylabel("y")
-plt.title(label)
+plt.xlabel("N")
+plt.ylabel("Time, sec")
 plt.grid(True, alpha=0.3)
 plt.tight_layout()
 
 for i, row in enumerate(x_rows):
     label = str(x_labels[i])
     x_values = pd.to_numeric(row, errors='coerce')
-    plt.plot(x_values, y_values, marker='o', linestyle='-')
+    plt.plot(y_values, x_values, marker='o', linestyle='-')
+plt.legend(x_labels)
 
 save_path = os.path.join(output_dir, f"test_0.jpg")
 plt.savefig(save_path, format='jpg', dpi=300)

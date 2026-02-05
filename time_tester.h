@@ -13,3 +13,4 @@
 #endif
 
 void func_test(long long start, int N, long long step, std::vector<void(*)(long long)> funcs);
+void func_test(long long start, int N, long long step, std::vector<void(*)(long long)> funcs, void (*preambula)(long long));
