@@ -20,6 +20,7 @@ run_only:
 	./app.exe
 
 run_silent:
+	cls
 	g++ main.cpp time_tester.cpp -o app.exe -O0 -DREPEAT_SIZE=${rep} ${def} -DSILENT
 	./app.exe
 	
