@@ -38,5 +38,5 @@ void preamb(long long N){
 }
 
 int main(){
-    func_test(1000, 20, 1000, {bubbleSort1, bubbleSort2, bubbleSort3}, preamb);
+    func_test(1000, 10, 1000, {bubbleSort1, bubbleSort2, bubbleSort3}, preamb);
 }
